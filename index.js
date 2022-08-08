@@ -1,6 +1,18 @@
+//Fetch request to the GOT API
+//Returned response converted to JSON
+//Call a second function, renderBooks, passing JSON-ified data as the argument
+
+
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  return fetch("https://anapioficeandfire.com/api/books")
+  .then(function (response){
+    // console.log(response);
+    return response.json();
+  })
+  .then(function(data){
+    // console.log(data);
+    renderBooks(data);
+  })
 }
 
 function renderBooks(books) {
@@ -12,6 +24,10 @@ function renderBooks(books) {
   });
 }
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+
+
